@@ -20,8 +20,12 @@ steps:
       javaHomeOption: 'JDKVersion'
       sonarQubeRunAnalysis: false
 
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current'
-    downloadType: 'specific'
-    downloadPath: '$(System.ArtifactsDirectory)'
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'specific'
+      project: '4f61c9be-a827-4ffd-b406-9e3290fc4b49'
+      pipeline: '1'
+      buildVersionToDownload: 'latest'
+      downloadType: 'specific'
+      itemPattern: 'bundles/crafter-cms-authoring.tar.gz'
+      downloadPath: '$(System.ArtifactsDirectory)'
